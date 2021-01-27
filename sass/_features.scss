@@ -1,0 +1,39 @@
+.features {
+  grid-column: center-start/ center-end;
+
+  margin: 15rem 0;
+
+  //we want to make some layouts with grid here
+  display: grid;
+  //this template doesnt work for responsive purpose
+  //grid-template-columns: repeat(3, 1fr);
+  //so we  use it>>>> auto-fit >>> with it CSS will add as many tracks as fit in the container.
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  //for row>>>that means that these are row tracks of an implicit grid
+  grid-gap: 6rem;
+  //when you see the verity space between your text...it because every grid items fill the entire cells...so with different content you have different white space
+//so it is back to align-item default that is stretch...
+  align-items: start;
+}
+
+.feature  {
+//when you see the verity space between your text...it because every grid items fill the entire cells...so with different content you have different white space
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  grid-row-gap: 1.5rem;
+  grid-column-gap: 2.5rem;
+
+  &__icon {
+    fill: $color-primary;
+    width: 4.5rem;
+    height: 4.5rem;
+    //we dont define grid-row...so we dont have explicit grid...so -1 doesnt make sense
+    //grid-row: 1/ -1;
+    grid-row: 1/ span 2;
+    transform: translateY(-1rem);
+  }
+
+  &__text {
+    font-size: 1.7rem;
+  }
+}
